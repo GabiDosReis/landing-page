@@ -1,0 +1,328 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #e8f7ff;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #00558f;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+/* =========================
+   CONTAINER GERAL
+========================= */
+
+main {
+    width: min(100%, 1200px);
+    margin: 0 auto;
+    background: inherit;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+    height: 62px;
+    background: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 70px;
+    border-bottom: 1px solid rgba(0, 85, 143, 0.2);
+}
+
+.logo img {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+nav a {
+    color: inherit;
+    text-decoration: none;
+    font-size: 11px;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+nav a:hover {
+    opacity: 1;
+}
+
+.header-buttons {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+button {
+    border: none;
+    background: #dff2ff;
+    color: #00558f;
+    padding: 7px 14px;
+    border-radius: 20px;
+    font-size: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: #c7eaff;
+    transform: translateY(-2px);
+}
+
+.header-buttons .register {
+    background: #00558f;
+    color: white;
+}
+
+
+/* =========================
+   INÍCIO
+========================= */
+
+.inicio {
+    min-height: 370px;
+    display: flex;
+    align-items: center;
+    padding: 45px 48px;
+}
+
+.inicio-conteudo {
+    max-width: 760px;
+}
+
+.inicio h1 {
+    margin: 0 0 12px;
+    font-size: 40px;
+    line-height: 1.12;
+    font-weight: 700;
+    max-width: 700px;
+    animation: fadeInDown 1.2s ease-in-out;
+}
+
+.inicio p {
+    margin: 0 0 16px;
+    max-width: 670px;
+    font-size: 15px;
+    line-height: 1.25;
+    opacity: 0.9;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.botoes {
+    display: flex;
+    gap: 12px;
+}
+
+
+/* =========================
+   SOBRE MIM
+========================= */
+
+.sobre {
+    margin: 8px 6px;
+    min-height: 235px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    border: 3px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 1px rgba(0, 85, 143, 0.1);
+}
+
+.foto-container {
+    flex: 0 0 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.foto-circulo {
+    width: 220px;
+    height: 220px;
+    padding: 12px;
+    background: #bde6ff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.foto-circulo img {
+    width: 190px;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.sobre-conteudo {
+    flex: 1;
+    text-align: right;
+}
+
+.sobre h2 {
+    margin: 0 0 2px;
+    font-size: 29px;
+}
+
+.sobre p {
+    margin: 3px 0;
+    font-size: 13px;
+    line-height: 1.25;
+}
+
+.sobre button {
+    margin-top: 8px;
+}
+
+
+/* =========================
+   CONTATO (Corrigido para alinhar o formulário)
+========================= */
+
+.contato {
+    position: relative;
+    min-height: 320px;
+    margin-top: 8px;
+    padding: 30px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    background: #005b91;
+    color: white;
+}
+
+.contato-formulario {
+    position: relative;
+    z-index: 2;
+    width: 320px; /* Alargado para caber perfeitamente os inputs */
+    background: white;
+    padding: 20px;
+    border-radius: 6px;
+    color: #333;
+}
+
+.contato form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contato label {
+    margin-bottom: 3px;
+    color: #00558f;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.contato input,
+.contato textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    outline: none;
+    font-size: 11px;
+    color: #333;
+}
+
+.contato input:focus,
+.contato textarea:focus {
+    border-color: #00558f;
+}
+
+.contato textarea {
+    height: 70px;
+    resize: none;
+}
+
+.contato form button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    background: #005b91;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.contato form button:hover {
+    background: #00436d;
+}
+
+.contato-texto {
+    position: relative;
+    z-index: 2;
+    width: 48%;
+    text-align: right;
+}
+
+.contato-texto h2 {
+    margin: 0 0 8px;
+    color: white;
+    font-size: 20px;
+    line-height: 1.15;
+}
+
+.contato-texto p {
+    margin: 0 0 10px;
+    color: white;
+    font-size: 11px;
+    line-height: 1.3;
+}
+
+.contato-texto button {
+    background: #e0f4ff;
+    color: #00558f;
+}
+
+
+/* =========================
+   KEYFRAMES E RESPONSIVO
+========================= */
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-25px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@media (max-width: 800px) {
+    .contato {
+        flex-direction: column;
+        gap: 25px;
+    }
+    .contato-texto {
+        width: 100%;
+        text-align: center;
+    }
+}
