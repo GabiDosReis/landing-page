@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gabrielle Janine | Experiências Digitais</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Google reCAPTCHA API -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // Inicialize com a sua Public Key do EmailJS (substitua 'SUA_PUBLIC_KEY' quando configurar sua conta)
+            emailjs.init({
+              publicKey: "PIuxH5us4dmweLLkd",
+            });
+        })();
+    </script>
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="logo">
+            <img src="img/logo2.png" alt="Logo">
+        </div>
+
+        <nav>
+            <a href="#">Products</a>
+            <a href="#">Solutions</a>
+            <a href="#">Community</a>
+            <a href="#">Resources</a>
+            <a href="#">Pricing</a>
+            <a href="#">Contact</a>
+            <a href="#">Link</a>
+        </nav>
+
+        <div class="header-buttons">
+            <!-- Botão de mudar a cor de fundo exigido -->
+            <button id="btn-tema" title="Mudar cor de fundo">🎨 Tema</button>
+            <button>Sign in</button>
+            <button class="register">Register</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- INÍCIO -->
+        <section class="inicio">
+            <div class="inicio-conteudo">
+                <h1>
+                    Crio experiências digitais
+                    personalizadas para marcas que
+                    desejam se destacar.
+                </h1>
+                <p>
+                    Com mais de 10 anos de experiência, meu objetivo é ajudar clientes a alcançar
+                    seus objetivos de negócio por meio de soluções digitais criativas e eficazes.
+                </p>
+                <div class="botoes">
+                    <button>Entre em contato</button>
+                    <button>Solicitar orçamento</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOBRE MIM -->
+        <section class="sobre">
+            <div class="foto-container">
+                <div class="foto-circulo">
+                    <img src="img/foto1.jpg" alt="Foto de Gabrielle Janine">
+                </div>
+            </div>
+            <div class="sobre-conteudo">
+                <h2>Sobre mim</h2>
+                <p>
+                    Meu nome é Gabrielle Janine, tenho 18 anos e tenho algumas
+                    experiências em desenvolvimento de soluções digitais criativas
+                    e eficazes, além disso sou responsável por criar softwares
+                    personalizados para clientes de diversos setores, incluindo
+                    automação, marketing, saúde, educação e comércio eletrônico.
+                </p>
+                <p>
+                    Tenho experiência comprovada e um amplo portfólio de projetos
+                    bem-sucedidos.
+                </p>
+                <button>Entre em contato</button>
+            </div>
+        </section>
+
+        <!-- CONTATO -->
+        <section class="contato">
+            <div class="contato-formulario">
+                <!-- Formulário integrado com EmailJS e reCAPTCHA -->
+                <form id="contact-form">
+                    <label for="nome">Nome</label>
+                    <input id="nome" name="from_name" type="text" placeholder="Seu nome" required>
+
+                    <label for="sobrenome">Sobrenome</label>
+                    <input id="sobrenome" name="from_sobrenome" type="text" placeholder="Seu sobrenome" required>
+
+                    <label for="email">Email</label>
+                    <input id="email" name="from_email" type="email" placeholder="seu@email.com" required>
+
+                    <label for="mensagem">Mensagem</label>
+                    <textarea id="mensagem" name="message" placeholder="Sua mensagem..." required></textarea>
+
+                    <!-- Google reCAPTCHA Widget -->
+                    <div class="g-recaptcha" data-sitekey="6LdlAeYtAAAAALxF4Rn3dx4j-ffz0okOGPfXBoNz" style="transform:scale(0.77); transform-origin:0 0; margin-bottom: 5px;"></div>
+
+                    <button type="submit">Submit</button>
+                    <p id="form-status" style="font-size: 7px; margin-top: 5px; color: #00558f; font-weight: bold;"></p>
+                </form>
+            </div>
+
+            <div class="contato-texto">
+                <h2>
+                    Sua marca é única.<br>
+                    Seu projeto também deve ser.
+                </h2>
+                <p>
+                    Pronto para transformar sua presença digital
+                    em crescimento real para o seu negócio?
+                </p>
+                <button>Entre em contato</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Script JavaScript para o Botão de Tema e Envio via EmailJS -->
+    <script>
+        // 1. Funcionalidade do Botão de Mudar Cor de Fundo
+        const btnTema = document.getElementById('btn-tema');
+        const body = document.body;
+
+        btnTema.addEventListener('click', function() {
+            // Alterna entre o fundo azul claro padrão e um fundo escuro/alternativo
+            if (body.style.backgroundColor === 'rgb(26, 26, 36)') {
+                body.style.backgroundColor = '#e8f7ff';
+                body.style.color = '#00558f';
+            } else {
+                body.style.backgroundColor = '#1a1a24';
+                body.style.color = '#f1f1f1';
+            }
+        });
+
+        // 2. Funcionalidade de Envio do Formulário via API (EmailJS + reCAPTCHA)
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Validação do reCAPTCHA
+            var responseCaptcha = grecaptcha.getResponse();
+            if (responseCaptcha.length === 0) {
+                document.getElementById('form-status').innerText = "Por favor, marque o reCAPTCHA!";
+                document.getElementById('form-status').style.color = "red";
+                return;
+            }
+
+            document.getElementById('form-status').innerText = "Enviando mensagem...";
+            document.getElementById('form-status').style.color = "#00558f";
+
+            // Parâmetros para o EmailJS (Substitua 'SEU_SERVICE_ID' e 'SEU_TEMPLATE_ID')
+            emailjs.sendForm('service_jlbgw7p', 'template_xeesvcn', this)
+                .then(function() {
+                    document.getElementById('form-status').innerText = "Mensagem enviada com sucesso!";
+                    document.getElementById('form-status').style.color = "green";
+                    document.getElementById('contact-form').reset();
+                    grecaptcha.reset();
+                }, function(error) {
+                    document.getElementById('form-status').innerText = "Erro ao enviar. Tente novamente.";
+                    document.getElementById('form-status').style.color = "red";
+                    console.log('FAILED...', error);
+                });
+        });
+    </script>
+</body>
+</html>
